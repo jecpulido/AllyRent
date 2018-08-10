@@ -1,10 +1,206 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <h1>Hello World!</h1>
+<head>
+  <title>••• AllyRent</title>
+  <meta charset="UTF-8">
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" type="text/css" href="assets/css/login.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+</head>
+
+<body class="main">
+
+<div class="login-screen"></div>
+    <div class="login-center">
+        <div class="container min-height">
+          <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="login" id="card">
+                      <div class="front signin_form" style="margin-top: 100px;"> 
+                          <form class="login-form" method="post" style="width: 320px;">
+                            <h1 class="text-center">AllyRent</h1>
+                            <p class="text-center">Una red social a tu servicio.</p>
+                              <div class="form-group">
+                                  <div class="input-group">
+                                      <input type="email" id="email" class="form-control" placeholder="Digita tu correo eléctronico">
+                                      <span class="input-group-addon">
+                                          <i class="glyphicon glyphicon-user"></i>
+                                      </span>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <div class="input-group">
+                                      <input type="password" id="pwd" class="form-control" placeholder="Digita tu contraseña">
+                                      <span class="input-group-addon">
+                                          <i class="glyphicon glyphicon-lock"></i>
+                                      </span>
+                                  </div>
+                              </div>
+                              <div class="checkbox">
+                              <label><input type="checkbox">Recordarme.</label>
+                              </div>
+                              
+                              <div class="form-group sign-btn">
+                                  <input type="submit" class="btn btn-block" value="Iniciar Sesión">
+                                  <p class="text-center flip"><br><a href="#" id="flip-btn" class="signup signup_link"><i class="glyphicon glyphicon-edit"></i> Registrar una nueva cuenta.</a></p>
+                              </div>
+                          </form>
+                        </div>
+
+<!--  ---------------------------------------------------------------------------------------------- -->
+
+                        <div class="back signup_form" style="opacity: 0; margin-top: 50px;"> 
+                          
+                            <form class="login-form" method="post">
+                              <h2 class="text-center">Nueva cuenta AllyRent</h2>
+                              
+                              <div class="row">
+                                <div class="form-group">
+                                  <br>
+                                  <div class="col-md-6">
+                                    <div class="input-group">
+                                      <span class="input-group-addon">
+                                          <i class="glyphicon glyphicon-user"></i>
+                                      </span>
+                                      <input type="text" class="form-control" id="nombres" placeholder="Nombres" required>
+                                    </div>
+                                  </div>
+                                  
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                      <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" required>
+                                      <span class="input-group-addon">
+                                          <i class="glyphicon glyphicon-user"></i>
+                                      </span>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="form-group">
+                                  <br>
+                                  <div class="col-md-6">
+                                    <div class="input-group">
+                                      <span class="input-group-addon">
+                                          <i class="glyphicon glyphicon-barcode"></i>
+                                      </span>
+                                      <select class="form-control" id="tipodoc" required>
+                                        <option value="">Seleccione tipo documento</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                      <input type="number" class="form-control" id="documento" placeholder="N° de documento" required>
+                                      <span class="input-group-addon">
+                                          <i class="glyphicon glyphicon-barcode"></i>
+                                      </span>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="form-group">
+                                  <br>
+                                  <div class="col-md-12">
+                                    <div class="input-group">
+                                      <span class="input-group-addon">
+                                          <i class="glyphicon glyphicon-envelope"></i>
+                                      </span>
+                                      <input type="email" id="email" class="form-control" placeholder="Correo electronico" required>
+                                    </div>
+                                  </div>                          
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="form-group">
+                                  <br>
+                                  <div class="col-md-6">
+                                    <div class="input-group">
+                                      <span class="input-group-addon">
+                                          <i class="glyphicon glyphicon-phone"></i>
+                                      </span>
+                                      <input type="number" class="form-control" id="telefono" placeholder="Telefono" required>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="input-group">
+                                      <span class="input-group-addon">
+                                          <i class="glyphicon glyphicon-calendar"></i>
+                                      </span>
+                                      <input type="date" class="form-control" id="fechanacimiento" placeholder="Fecha de Nacimiento" required>
+                                    </div>
+                                  </div>                          
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="form-group">
+                                  <br>
+                                <div class="col-md-6">
+                                    <!-- <div class="input-group"> -->
+                                      <!-- <span class="input-group-addon">
+                                          <i class="glyphicon glyphicon-picture"></i>
+                                      </span> -->
+                                      <input type="file" class="form-control" id="foto" required>
+                                    <!-- </div> -->
+                                </div>  
+
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                      <!-- <span class="input-group-addon text-primary">
+                                          <i class="">Tipo</i>
+                                      </span> -->
+                                      <input type="checkbox" name="role" id="rol" class="role" data-toggle="toggle" data-on="Propietario" data-off="Ocupante" data-onstyle="success" data-offstyle="danger" data-size="small" data-style="slow" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                      <!-- <span class="input-group-addon text-primary">
+                                          <i class="">Sexo</i>
+                                      </span> -->
+                                      <input type="checkbox" name="role" id="sexo" class="role" data-toggle="toggle" data-on="Hombre" data-off="Mujer" data-onstyle="primary" data-offstyle="info" data-size="small" data-style="slow" required>
+                                    </div>
+                                </div>
+                                  
+                                </div>
+                              </div>
+                              
+                              <br>
+                              <div class="row" style="margin: 0px auto">
+                                  <div class="col-md-3"></div>
+                                  <div class="col-md-6">
+                                    <div class="form-group sign-btn">
+                                      <input type="submit" class="btn btn-block" value="Sign up">
+                                      <br><br>
+                                      <p>¿Ya tienes una cuenta? <a href="#" id="unflip-btn" class="signup flip">Log in</a></p>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3"></div>
+                              </div>
+                          </form>
+                        
+                          </div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Flip/1.0.18/jquery.flip.js"></script>
+    <script type="text/javascript" src="assets/js/login.js"></script>
     </body>
 </html>
