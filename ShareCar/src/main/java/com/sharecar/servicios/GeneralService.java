@@ -5,10 +5,14 @@
  */
 package com.sharecar.servicios;
 
+import com.sharecar.beans.CiudadFacade;
 import com.sharecar.beans.DatamasterFacade;
 import com.sharecar.beans.DatatypeFacade;
+import com.sharecar.beans.DepartamentoFacade;
+import com.sharecar.entidades.Ciudad;
 import com.sharecar.entidades.Datamaster;
 import com.sharecar.entidades.Datatype;
+import com.sharecar.entidades.Departamento;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ws.rs.GET;
@@ -30,6 +34,12 @@ public class GeneralService {
     @EJB
     DatamasterFacade _Datamaster;
 
+    @EJB
+    DepartamentoFacade _Department;
+
+    @EJB
+    CiudadFacade _Ciudad;
+    
     @GET
     @Path("/FindType/{idParameter}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -74,6 +84,35 @@ public class GeneralService {
         }
         return null;
     }
-    
-    
+
+    @GET
+    @Path("/Departments")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Departamento> ListDepartments() {
+        try {
+            List<Departamento> lista = _Department.findAll();
+            if (lista != null) {
+                return lista;
+            }
+        } catch (Exception e) {
+            System.out.println("" + e.getMessage());
+        }
+        return null;
+    }
+
+    @GET
+    @Path("/City/{idDepartamento}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Ciudad> FindCities(@PathParam("idDepartamento") int idDepartamento) {
+        try {
+            List<Ciudad> lista = _Ciudad.findByDepartamento(idDepartamento);
+            if (lista != null) {
+                return lista;
+            }
+        } catch (Exception e) {
+            System.out.println("" + e.getMessage());
+        }
+        return null;
+    }
+
 }

@@ -6,9 +6,11 @@
 package com.sharecar.beans;
 
 import com.sharecar.entidades.Ciudad;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -29,4 +31,21 @@ public class CiudadFacade extends AbstractFacade<Ciudad> {
         super(Ciudad.class);
     }
     
+    public List<Ciudad> findByDepartamento(int idDepartamento){
+        try {
+            Query q = em.createNamedQuery("Ciudad.findByIidDepartamento").setParameter("idDepartamento", idDepartamento);
+            List<Ciudad> listado = q.getResultList();
+
+            if (!listado.isEmpty()) {
+                return listado;
+            } else {
+                return null;
+            }
+
+        } catch (Exception e) {
+            System.out.println("" + e.getMessage());
+            return null;
+        }
+        
+    }
 }
