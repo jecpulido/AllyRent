@@ -120,7 +120,7 @@ a:hover, a:focus {
 
 .login .sign-btn input.btn {
     background: #372984;
-    border-color: #fff;
+    /*border-color: #fff;*/
     color: #fff;
 }
 
@@ -146,4 +146,8 @@ a:hover, a:focus {
     padding: 5px 15px; 
     border-radius: 15px;
 
+}
+
+.btn-block:hover{
+    opacity: 0.8;
 }
