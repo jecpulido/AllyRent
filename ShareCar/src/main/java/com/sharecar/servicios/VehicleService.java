@@ -7,10 +7,12 @@ package com.sharecar.servicios;
 
 import com.sharecar.beans.MarcaFacade;
 import com.sharecar.beans.ModeloFacade;
+import com.sharecar.beans.TarifaFacade;
 import com.sharecar.beans.VehiculoFacade;
 import com.sharecar.entidades.Login;
 import com.sharecar.entidades.Marca;
 import com.sharecar.entidades.Modelo;
+import com.sharecar.entidades.Tarifa;
 import com.sharecar.entidades.Usuario;
 import com.sharecar.entidades.Vehiculo;
 import java.util.List;
@@ -27,7 +29,6 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Jorge
  */
-
 @Path("Vehicle")
 public class VehicleService {
 
@@ -36,9 +37,12 @@ public class VehicleService {
 
     @EJB
     MarcaFacade _marcaFacade;
-    
+
     @EJB
     ModeloFacade _modeloFacade;
+
+    @EJB
+    TarifaFacade _tarifaFacade;
 
     @GET
     @Path("/Marca")
@@ -47,22 +51,45 @@ public class VehicleService {
         List<Marca> listaMarca = _marcaFacade.findAll();
         return listaMarca;
     }
-    
+
     @GET
     @Path("/Modelo/{idMarca}")
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Modelo> findModelByMarca(@PathParam("idMarca")int idMarca) {
+    public List<Modelo> findModelByMarca(@PathParam("idMarca") int idMarca) {
         List<Modelo> listaModelo = _modeloFacade.findModelByMarca(idMarca);
         return listaModelo;
     }
-    
+
     @POST
     @Path("/CreateVehicle")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Vehiculo CreateVehicle(Vehiculo vehiculo){        
-        _vehicleFacade.create(vehiculo);
-        return vehiculo;
+    public Vehiculo CreateVehicle(Vehiculo vehiculo) {
+        try {
+            if (vehiculo != null) {
+                _vehicleFacade.create(vehiculo);
+            }
+            return vehiculo;
+        } catch (Exception e) {
+            System.out.println("" + e.getMessage());
+        }
+        return null;
     }
-    
+
+    @GET
+    @Path("/FindVehicle/{idVehiculo}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Vehiculo FinVehicle(@PathParam("idVehiculo") int idVehiculo) {
+        Vehiculo veh = _vehicleFacade.find(idVehiculo);
+        return veh;
+    }
+
+    @GET
+    @Path("/ListTarifa")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Tarifa> ListTarifa() {
+        List<Tarifa> tarifas  = _tarifaFacade.findAll();
+        return tarifas;
+    }
+
 }

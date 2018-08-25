@@ -39,7 +39,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Vehiculo.findAll", query = "SELECT v FROM Vehiculo v")
     , @NamedQuery(name = "Vehiculo.findByIdVehiculo", query = "SELECT v FROM Vehiculo v WHERE v.idVehiculo = :idVehiculo")
     , @NamedQuery(name = "Vehiculo.findByPlaca", query = "SELECT v FROM Vehiculo v WHERE v.placa = :placa")
-    , @NamedQuery(name = "Vehiculo.findByA\u00f1o", query = "SELECT v FROM Vehiculo v WHERE v.a\u00f1o = :a\u00f1o")
+    , @NamedQuery(name = "Vehiculo.findByAno", query = "SELECT v FROM Vehiculo v WHERE v.ano = :ano")
     , @NamedQuery(name = "Vehiculo.findByKm", query = "SELECT v FROM Vehiculo v WHERE v.km = :km")
     , @NamedQuery(name = "Vehiculo.findByIsPlacaPar", query = "SELECT v FROM Vehiculo v WHERE v.isPlacaPar = :isPlacaPar")})
 public class Vehiculo implements Serializable {
@@ -57,9 +57,8 @@ public class Vehiculo implements Serializable {
     private String placa;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "a\u00f1o")
-    @Temporal(TemporalType.DATE)
-    private Date año;
+    @Column(name = "ano")
+    private int ano;
     @Basic(optional = false)
     @NotNull
     @Column(name = "Km")
@@ -100,10 +99,10 @@ public class Vehiculo implements Serializable {
         this.idVehiculo = idVehiculo;
     }
 
-    public Vehiculo(Integer idVehiculo, String placa, Date año, int km, boolean isPlacaPar) {
+    public Vehiculo(Integer idVehiculo, String placa, int ano, int km, boolean isPlacaPar) {
         this.idVehiculo = idVehiculo;
         this.placa = placa;
-        this.año = año;
+        this.ano = ano;
         this.km = km;
         this.isPlacaPar = isPlacaPar;
     }
@@ -124,12 +123,12 @@ public class Vehiculo implements Serializable {
         this.placa = placa;
     }
 
-    public Date getAño() {
-        return año;
+    public int getAno() {
+        return ano;
     }
 
-    public void setAño(Date año) {
-        this.año = año;
+    public void setAno(int ano) {
+        this.ano = ano;
     }
 
     public int getKm() {
@@ -247,5 +246,7 @@ public class Vehiculo implements Serializable {
     public String toString() {
         return "com.sharecar.entidades.Vehiculo[ idVehiculo=" + idVehiculo + " ]";
     }
+
+
     
 }

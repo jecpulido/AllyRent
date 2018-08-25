@@ -31,6 +31,7 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(com.sharecar.servicios.GeneralService.class);
         resources.add(com.sharecar.servicios.UserService.class);
+        resources.add(com.sharecar.servicios.VehicleService.class);
     }
     
 }
