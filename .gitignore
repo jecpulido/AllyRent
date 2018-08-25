@@ -18,3 +18,7 @@
 *.zip
 *.tar.gz
 *.rar
+*.class
+*.class
+*.java
+!/ShareCar/src/main/java/com/sharecar/servicios/VehicleService.java

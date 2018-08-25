@@ -6,9 +6,11 @@
 package com.sharecar.beans;
 
 import com.sharecar.entidades.Modelo;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,5 +30,21 @@ public class ModeloFacade extends AbstractFacade<Modelo> {
     public ModeloFacade() {
         super(Modelo.class);
     }
-    
+
+    public List<Modelo> findModelByMarca(int idMarca) {
+        try {
+            Query q = em.createNamedQuery("Modelo.findByIdMarca").setParameter("idMarca", idMarca);
+            List<Modelo> listaModelos = q.getResultList();
+
+            if (!listaModelos.isEmpty()) {
+                return listaModelos;
+            } else {
+                return null;
+            }
+
+        } catch (Exception e) {
+            System.out.println("" + e.getMessage());
+            return null;
+        }
+    }
 }
